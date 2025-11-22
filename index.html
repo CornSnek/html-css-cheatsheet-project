@@ -144,7 +144,7 @@
           <br>.button.primary { color: red; }    /* weight: 0-2-0 → higher priority and will override the .button rule*/
         </p>
         The numbers represent id, class/other/pseudo-class, and elements/pseudo-elements respectively.
-        <br>Note that !important can be used after a property to override these weights and probability, but should be used sparingly.
+        <br>Note that !important can be used after a property to override these priority and weights, but should be used sparingly.
         <p class="as-css-code">
           #should-be-first {color: black}
           <br>.first-because-important {color: black !important} /* Even though id has higher priority than a class, !important overrides it, so that this rule will override others. */
