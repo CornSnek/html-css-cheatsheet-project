@@ -13,15 +13,15 @@
       <th>Description</th>
     </tr>
     <tr>
-      <td>Element</td> 
+      <td>HTML Element</td> 
       <td>
-        Using the element type. For example, using &lt;td&gt; as the selector will mark all td elements to use bold.
+        HTML elements involve body, p, h1, span, img, a, etc. For example, using &lt;td&gt; as the selector will mark all td elements to use bold.
         <p class="as-css-code">
           td {
           <br>&nbsp;&nbsp;font-style: bold;
           <br>}
         </p>
-        This ordered list ol uses li for each number, and thus uses bold according to the css selector.
+        For every td (excluding example css code), it uses bold text according to the css selector.
       </td>
     </tr>
     <tr>
@@ -29,11 +29,10 @@
       <td>Using * as the selector will select any type. This page uses the following to be used generally regardless of element type.
         <p class="as-css-code">
           * {
-          <br>&nbsp;&nbsp;background-color: gray;
-          <br>&nbsp;&nbsp;color: white;
-          <br>&nbsp;&nbsp;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+          <br>&nbsp;&nbsp; font-family: ui-monospace;
           <br>}
         </p>
+        The font used is ui-monospace, and is the only font for this page.
       </td>
     </tr>
     <tr>
@@ -69,17 +68,20 @@
       <td>
         Other than using class or id attributes, other attributes can also be selected. For example:
         <p class="as-css-code">
-          [data-num="1"] {
-          <br>&nbsp;&nbsp; color: green;
+          [data-num] {
+          <br>&nbsp;&nbsp; color: red;
+          <br>}
+          <br>[data-num="1"] {
+          <br>&nbsp;&nbsp; color: lightgreen;
           <br>}
           <br>[data-num="2"] {
-          <br>&nbsp;&nbsp; color: blue;
+          <br>&nbsp;&nbsp; color: lightblue;
           <br>}
           <br>[data-num="3"] {
           <br>&nbsp;&nbsp; color: yellow;
           <br>}
         </p>
-        <p>These will change the font color regarding the attribute data-num. Here are some inline span using <span data-num="1">data-num="1"</span>, <span data-num="2">data-num="2"</span>, <span data-num="3">data-num="3"</span> respectively. There are also other rules in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors</a>, that can modify the selection like "Contains" using *=, ^= to select only attributes prefixed by this value, and many more. Using just [data-num] will select data-num attribute elements regardless of its value such as this <span data-num="4">inline span</span> with data-num="4".</p>
+        <p>These will change the font color regarding the attribute data-num. Here are some inline span using <span data-num="1">data-num="1"</span>, <span data-num="2">data-num="2"</span>, <span data-num="3">data-num="3"</span> respectively. There are also other rules in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors</a>, that can modify the selection like "Contains" using *=, ^= to select only attributes prefixed by this value, and many more. Using just [data-num] will select the data-num attribute elements regardless of its value such as this <span data-num="4">inline span</span> with data-num="4".</p>
       </td>
     </tr>
     <tr>
@@ -88,16 +90,16 @@
         Using selectors such as :focus, :visited, :disabled, and :active. For example:
         <p class="as-css-code">
           a:link { 
-          <br>&nbsp;&nbsp; color: blue; 
+          <br>&nbsp;&nbsp; color: lightblue; 
           <br>}
           <br>a:hover {
-          <br>&nbsp;&nbsp; color: green;
+          <br>&nbsp;&nbsp; color: lightgreen;
           <br>}
           <br>a:active {
           <br>&nbsp;&nbsp; color: darkred;
           <br>}
         </p>
-        <p>This makes anchor links blue by default, green when hovered, and darkred when clicked on. For example, this <a href="#">dummy link with # as its href</a> will show these characteristics. There are many more pseudo classes at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes</a></p>
+        <p>This makes anchor links lightblue by default, lightgreen when hovered, and darkred when clicked on. For example, this <a href="#">dummy link with # as its href</a> will show these characteristics. There are many more pseudo classes at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes</a></p>
       </td>
     </tr>
     <tr>
@@ -118,7 +120,7 @@
       </td>
     </tr>
     <tr>
-      <td>Specificity and !important</td>
+      <td>Specificity and important</td>
       <td>
         As mentioned in <a href="https://www.w3schools.com/css/css_specificity.asp" target="_blank" rel="noopener noreferrer">https://www.w3schools.com/css/css_specificity.asp</a>, there is an order in which selectors will be overridden based on a nested priority and weight other than just reading rules from top to bottom in a css file (Where bottom rules usually override top rules).
         <br><br>From highest to lowest:
@@ -145,7 +147,7 @@
         <br>Note that !important can be used after a property to override these weights and probability, but should be used sparingly.
         <p class="as-css-code">
           #should-be-first {color: black}
-          <br>.first-because-important {color: black !important} /* Even though id has higher priority than a class, !important overrides it, so that this rule will override others.
+          <br>.first-because-important {color: black !important} /* Even though id has higher priority than a class, !important overrides it, so that this rule will override others. */
         </p>
       </td>
     </tr>

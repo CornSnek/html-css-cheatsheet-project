@@ -1,19 +1,25 @@
 * {
-    background-color: gray;
-    color: white;
     font-family: ui-monospace;
 }
 
-table {
-    width: 100%
+body {
+    background-color: darkslategray;
+    color: white;
 }
 
-a:link { 
-    color: blue; 
+table {
+    width: 100%;
+
 }
+
+a:link {
+    color: lightblue;
+}
+
 a:hover {
-    color: green;
+    color: lightgreen;
 }
+
 a:active {
     color: darkred;
 }
@@ -22,17 +28,33 @@ h1 {
     text-align: center;
 }
 
-th {
-    font-weight: bold;
-    font-size: x-large;
-}
+th,
 td {
     font-weight: bold;
+    background-color: #5f5f5f;
+    padding: 10px;
+}
+
+th {
+    font-size: x-large;
+}
+
+td:first-child {
+    text-align: center;
+}
+
+tr:nth-child(odd)>td {
+    background-color: #5f5f5f;
+}
+
+tr:nth-child(even)>td {
+    background-color: #6f6f6f;
 }
 
 .as-css-code {
     border: 1px dashed white;
-    background-color: darkslategray;
+    color: #dfdfdf;
+    background-color: #1c1d1d;
     font-weight: initial;
     padding: 10px;
 }
@@ -52,27 +74,32 @@ td {
 [data-num] {
     color: red;
 }
+
 [data-num="1"] {
-    color: green;
+    color: lightgreen;
 }
+
 [data-num="2"] {
-    color: blue;
+    color: lightblue;
 }
+
 [data-num="3"] {
     color: yellow;
 }
 
 #pe-test::first-letter {
-    color:black
+    color: black;
 }
+
 #pe-test::after {
     content: " If you see this text, this was made with #pe-test::after and made yellow.";
     color: yellow;
 }
 
 #comb-ex span {
-    color: red
+    color: red;
 }
-#comb-ex > span {
-    color: orange
+
+#comb-ex>span {
+    color: orange;
 }
