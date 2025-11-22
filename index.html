@@ -1,0 +1,184 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Selectors and Visual Rules</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1>Selectors in CSS</h1>
+  <h2>When using selectors in CSS, there are types that can help specify or generalize element parts of a page to be formatted regarding the rules. Here are some selector rules and example code using its selector.</h2>
+  <table border="1">
+    <tr>
+      <th>Topic</th>
+      <th>Description</th>
+    </tr>
+    <tr>
+      <td>Element</td> 
+      <td>
+        Using the element type. For example, using &lt;td&gt; as the selector will mark all td elements to use bold.
+        <p class="as-css-code">
+          td {
+          <br>&nbsp;&nbsp;font-style: bold;
+          <br>}
+        </p>
+        This ordered list ol uses li for each number, and thus uses bold according to the css selector.
+      </td>
+    </tr>
+    <tr>
+      <td>Universal</td>
+      <td>Using * as the selector will select any type. This page uses the following to be used generally regardless of element type.
+        <p class="as-css-code">
+          * {
+          <br>&nbsp;&nbsp;background-color: gray;
+          <br>&nbsp;&nbsp;color: white;
+          <br>&nbsp;&nbsp;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+          <br>}
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Class</td>
+      <td>Using the class attribute involves using . before the attribute name. For example:
+        <p class="as-css-code">
+          .make-bigger {
+          <br>&nbsp;&nbsp;font-size: x-large;
+          <br>}
+          <br>
+          <br>.have-border {
+          <br>&nbsp;&nbsp;border: 1px dashed white;
+          <br>}
+        </p>
+        This will mark any element with the <span class="make-bigger">make-bigger</span> class attribute to be bolded, or a <span class="have-border">have-border</span> class attribute to have a dashed border.
+        <br>Note that multiple classes can be used so that the stylesheet can apply both, such as this <span class="make-bigger have-border">make-bigger and have-border</span> class span element. Keep in mind of specificity and the order of the written selector rule in the .css will overwrite some rules in specific ways. This rule will be mentioned later in the list.
+      </td>
+    </tr>
+    <tr>
+      <td>ID</td>
+      <td>
+        Using only one id attribute using # before the attribute name. For example:
+        <p class="as-css-code">
+          #only-black-one {
+          <br>&nbsp;&nbsp;color: black;
+          <br>}
+        </p>
+        <p id="only-black-one">This will make an element that have the only-black-one id attribute to have the color black only, such as this p element having the only-black-one id attribute.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Attribute Selectors</td>
+      <td>
+        Other than using class or id attributes, other attributes can also be selected. For example:
+        <p class="as-css-code">
+          [data-num="1"] {
+          <br>&nbsp;&nbsp; color: green;
+          <br>}
+          <br>[data-num="2"] {
+          <br>&nbsp;&nbsp; color: blue;
+          <br>}
+          <br>[data-num="3"] {
+          <br>&nbsp;&nbsp; color: yellow;
+          <br>}
+        </p>
+        <p>These will change the font color regarding the attribute data-num. Here are some inline span using <span data-num="1">data-num="1"</span>, <span data-num="2">data-num="2"</span>, <span data-num="3">data-num="3"</span> respectively. There are also other rules in <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Attribute_selectors</a>, that can modify the selection like "Contains" using *=, ^= to select only attributes prefixed by this value, and many more. Using just [data-num] will select data-num attribute elements regardless of its value such as this <span data-num="4">inline span</span> with data-num="4".</p>
+      </td>
+    </tr>
+    <tr>
+      <td>Pseudo Class Selectors</td>
+      <td>
+        Using selectors such as :focus, :visited, :disabled, and :active. For example:
+        <p class="as-css-code">
+          a:link { 
+          <br>&nbsp;&nbsp; color: blue; 
+          <br>}
+          <br>a:hover {
+          <br>&nbsp;&nbsp; color: green;
+          <br>}
+          <br>a:active {
+          <br>&nbsp;&nbsp; color: darkred;
+          <br>}
+        </p>
+        <p>This makes anchor links blue by default, green when hovered, and darkred when clicked on. For example, this <a href="#">dummy link with # as its href</a> will show these characteristics. There are many more pseudo classes at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-classes</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td>Pseudo Element Selectors</td>
+      <td>
+        Selects specific parts of an element such as ::first-line, ::first-letter, ::after, ::before, etc. For example:
+        <p class="as-css-code">
+          #pe-test::first-letter {
+          <br>&nbsp;&nbsp; color:black
+          <br>}
+          <br>#pe-test::after {
+          <br>&nbsp;&nbsp; content: " If you see this text, this was made with #pe-test::after and made yellow.";
+          <br>&nbsp;&nbsp; color: yellow;
+          <br>}
+        </p>
+        <p id="pe-test">This will make the first letter of this p with id pe-test the color black.</p>
+        <p>More information of pseudo elements are discussed at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-elements" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Pseudo-elements</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td>Specificity and !important</td>
+      <td>
+        As mentioned in <a href="https://www.w3schools.com/css/css_specificity.asp" target="_blank" rel="noopener noreferrer">https://www.w3schools.com/css/css_specificity.asp</a>, there is an order in which selectors will be overridden based on a nested priority and weight other than just reading rules from top to bottom in a css file (Where bottom rules usually override top rules).
+        <br><br>From highest to lowest:
+        <ol>
+          <li>Inline styles (HTML example &lt;h1 style="p{ color: white; }"&gt;&lt;/h1&gt;)</li>
+          <li>id attributes (#id-name)</li>
+          <li>class attributes (.class-name) and other attribute selectors ([href]), and pseudo-classes (:hover)</li>
+          <li>Elements (h1, a, ...) and pseudo-elements (::before, ::after)</li>
+          <li>* and :where()</li>
+        </ol>
+        These uses weights where the highest number weight from the leftmost wins.
+        For example:
+        <p class="as-css-code">
+          #demo {color: blue;} /* weight: 1-0-0 */
+          <br>p#demo {color: orange;} /* weight: 1-0-1 WINS! and will override other rules*/
+          <br>.test {color: green;} /* weight: 0-1-0 */
+          <br>p.test {color: green;} /* weight: 0-1-1 */
+          <br>p {color: red;} /* weight: 0-0-1 */
+          <br>
+          <br>.button { color: blue; }           /* weight: 0-1-0 */
+          <br>.button.primary { color: red; }    /* weight: 0-2-0 → higher priority and will override the .button rule*/
+        </p>
+        The numbers represent id, class/other/pseudo-class, and elements/pseudo-elements respectively.
+        <br>Note that !important can be used after a property to override these weights and probability, but should be used sparingly.
+        <p class="as-css-code">
+          #should-be-first {color: black}
+          <br>.first-because-important {color: black !important} /* Even though id has higher priority than a class, !important overrides it, so that this rule will override others.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>Combinators</td>
+      <td>
+        This can select elements based on element relationships (child, descendant, parent, etc.). For example:
+        <p class="as-css-code">
+          #comb-ex span { /*Descendant combinator that just uses space between #comb-ex and span. span can be a direct child or a descendant*/
+          <br>&nbsp;&nbsp;color: red
+          <br>}
+          <br>#comb-ex span { /*Child combinator where span must be a direct child of #comb-ex. This will overwrite the descendant combinator from red to orange.*/
+          <br>&nbsp;&nbsp;color: orange
+          <br>}
+        </p>
+        <p id="comb-ex">This comb-ex id element has a span element that will be <span>orange</span> because span is a direct child of this element. This one is <em><span>red</span></em> because span is inside an em element, and uses the descendant combinator (Not necessarily a direct child of #comb-ex).</p>
+        <p>More information can be found at <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Combinators" target="_blank" rel="noopener noreferrer">https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/Combinators</a></p>
+      </td>
+    </tr>
+    <tr>
+      <td>Multiple Selectors</td>
+      <td>
+        If multiple selectors have the same rules, the comma "," can be used to shorten the css rules. For example:
+        <p class="as-css-code">
+          /* This can be shortened using a comma between h1 and .menu below
+          <br>&nbsp;&nbsp; h1 { font-family: Georgia; }
+          <br>&nbsp;&nbsp; .menu { font-family: Georgia; }
+          <br>*/
+          <br>
+          <br>h1, .menu { font-family: Georgia; }
+          <br>/* Multiple selecotr with "," comma */
+        </p>
+      </td>
+    </tr>
+  </table>
+</body>
